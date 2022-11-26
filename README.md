@@ -1,2 +1,2 @@
-# bannybunny-Front
-CHALLENGER : BNB 체인 해커톤
+# banny_v1
+version 1
