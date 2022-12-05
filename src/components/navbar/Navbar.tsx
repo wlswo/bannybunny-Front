@@ -19,8 +19,8 @@ const Navbar: FC<NavbarProps> = ({ children }) => {
   }, [isLogged]);
 
   const onClickHandler = () => {
-    axios.get(`/api/users/logout`).then((response) => {
-      if (response.data.success) {
+    axios.get(`/api/logout`).then((response) => {
+      if (response.data.status === "success") {
         alert("take care!");
         navigate("/login");
       } else {

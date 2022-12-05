@@ -19,6 +19,7 @@ function App({ store }) {
   const AuthGameMarket = Auth(GameMarket, true);
   const AuthLogin = Auth(Login, false);
   const AuthRegister = Auth(Register, false);
+  
 
   return (
     <div>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../_actions/user_action";
 
 const Register = (props) => {
   const dispatch = useDispatch();

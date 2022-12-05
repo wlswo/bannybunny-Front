@@ -15,9 +15,9 @@ export default function (SpecificComponent, option, AdminRoute = null) {
 
     useEffect(() => {
       dispatch(auth()).then((response) => {
-        console.log(`hoc/auth에서 출력한 response : `, response);
+        console.log(`hoc/auth에서 출력한 response : `, response.payload);
         //로그인 안 한 경우
-        if (!response.payload.isAuth) {
+        if (response.payload.status === "false") {
           if (option) navigate("/login");
         } else {
           //로그인 한 상태
