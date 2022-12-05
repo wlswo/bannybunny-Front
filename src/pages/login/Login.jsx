@@ -6,6 +6,15 @@ import { useDispatch } from "react-redux";
 import { auth } from "../../_actions/user_action";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  dispatch(auth()).then((res) => {
+    if (res.payload.status === "true") {
+      alert(`로그인하였습니다.`);
+      navigate("/", { state: res.payload.user.email });
+    } 
+  });
       
   return (
     <div className="login section__padding">

@@ -21,7 +21,7 @@ export default function (SpecificComponent, option, AdminRoute = null) {
           if (option) navigate("/login");
         } else {
           //로그인 한 상태
-          navigate("/");
+          //navigate("/");
         }
       });
     }, []);
