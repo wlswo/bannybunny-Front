@@ -5,3 +5,5 @@ export { default as Footer } from "./footer/Footer";
 export { default as Event } from "./event/Event";
 export { default as Roadmap } from "./roadmap/Roadmap";
 export { default as RoadmapCard } from "./roadmapcard/RoadmapCard";
+export { default as NftCard } from "./nftcard/NftCard";
+

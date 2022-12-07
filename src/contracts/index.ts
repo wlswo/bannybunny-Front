@@ -1,6 +1,7 @@
-// PLN 배포한 스마트 컨트랙트 주소와 ABI 변경
-export const MINT_NFT_CONTRACT = "0x81d5EdEAf7659474eA73A85641BCF1d4b3A6EF22";
-export const MINT_NFT_ABI = [
+import { AbiItem } from 'web3-utils';  //스마트 컨트랙트의 인터페이스의 타입이 정의된 파일
+import Web3 from 'web3';
+
+const mintBannyAbi: AbiItem[] = [
 	{
 		"inputs": [
 			{
@@ -464,3 +465,11 @@ export const MINT_NFT_ABI = [
 		"type": "function"
 	}
 ];
+
+
+const mintAddress = "0x45cd232EB13AaF64447761C299581f02b4eC10B1";
+//export const saleAddress = "";
+
+export const web3 = new Web3(window.ethereum);
+export const mintContract = new web3.eth.Contract(mintBannyAbi, mintAddress);
+//export const saleContract = new web3.eth.Contract(saleBannyAbi, saleAddress);

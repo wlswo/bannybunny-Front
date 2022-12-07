@@ -3,13 +3,27 @@ import { Link } from "react-router-dom";
 import { Event, Contents } from "../../../../components";
 import "./main.css";
 import tempVid from "../../../../videos/bunny10.mp4";
+import axios from "axios";
 
 interface MainProps {
-  account: string;
+  account : string;
 }
 
-const Main: FC<MainProps> = ({ account }) => {
+const Main: FC<MainProps> = ({account}) => {
+
+  const [users,setUser]:any = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/users/auth')
+            .then(response => {
+                setUser(response.data.user)
+            });
+    }, []);
+    console.log(users)
+
   return (
+    <>
+    {account ? (
     <>
       <div className="market-container">
         <div className="speech">동료와 함께하고 싶어!</div>
@@ -32,16 +46,16 @@ const Main: FC<MainProps> = ({ account }) => {
           <i className="fa-regular fa-star"></i>
         </div>
         <div className="bobble">
-          <i className="fa-sharp fa-solid fa-pen"></i>
+          {users.name}
         </div>
         <div className="bobble">
-          <i className="fa-solid fa-carrot"></i>
+          {users.point} CARROTS
         </div>
         <div className="bobble">
-          <i className="fa-duotone fa-id-card"></i>
+          {users.check} Check
         </div>
         <div className="bobble">
-          <i className="fa-solid fa-clipboard-user"></i>
+         {users.createdAt.split(/[T]/)[0]}
         </div>
       </div>
       <div className="membership_main_block">
@@ -53,7 +67,14 @@ const Main: FC<MainProps> = ({ account }) => {
         <Event />
       </div>
       <Contents title="Play Ground" />
-    </>
+      </>
+      ):(
+        <div className="market-container">
+          <h3>No Wallet Connected!</h3>
+          <p>멤버십 서비스를 원하시면 전자지갑을 연결해주세요.</p>
+        </div>
+      )}
+      </>
   );
 };
 

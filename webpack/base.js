@@ -57,8 +57,9 @@ module.exports = {
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
   devServer: {
+    port: 3000,
     proxy: {
-      "/api": "http://localhost:3000", // bannybunny 프로젝트의 node server 포트번호
+      "/api": "http://localhost:3001", // bannybunny 프로젝트의 node server 포트번호
     },
   },
   plugins: [
